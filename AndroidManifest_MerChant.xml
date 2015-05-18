@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.beabox.hjy.tt"
+    android:versionCode="325"
+    android:versionName="V2.1" >
+
+    <uses-sdk
+        android:minSdkVersion="9"
+        android:targetSdkVersion="17" />
+
+    <!-- Frontia框架的公共权 -->
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+
+    <!-- 使用网络功能权限 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- SDK离线地图和cache功能读写外部存储 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+
+    <!-- 二维码扫 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <!-- Push service 运行? -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+
+    <!-- 使用定位功能权限,demo已集成百度定位SDK,不使用定位功能可去掉以下? -->
+    <!--
+    <permission android:name="android.permission.BAIDU_LOCATION_SERVICE" >
+    </permission>
+    -->
+
+    <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <!-- 个推 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <!-- <uses-permission android:name="getui.permission.GetuiService" /> -->
+
+    <!-- 测试权限 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+
+    <!-- 悬浮窗(FloatingService) permission -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 获取机型信息权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <!-- 录音 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+
+    <!-- 友盟推送 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- 【可选】如果需要设置前台是否显示通知，需要设置这个权限 -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <!-- 可选 -->
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_ADDED" />
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_CHANGED" />
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_INSTALL" />
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_REPLACED" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+
+
+    <application
+        android:name="com.app.base.init.MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/app_icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        
+        <activity
+            android:name="com.beabox.hjy.tt.SkinRunSplashActivity"
+            android:screenOrientation="portrait" 
+          	android:theme="@style/merchant_start_up_theme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <!-- 启动页 -->
+        <activity
+            android:name=".StartActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/start_up_theme"/>
+        
+        <!-- 首页 -->
+        <activity
+            android:name=".SkinRunMainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        
+        <!-- 我的美容导师 -->
+        <activity
+            android:name=".MyMasterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <!-- 我的美容老师信息 -->
+        <activity
+            android:name=".MasterInfoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <!-- 系统设置 -->
+        <activity
+            android:name=".SysSettingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <!-- 我的订阅 -->
+        <activity
+            android:name="com.beabox.hjy.tt.MySubscibeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <!-- 系统帮助 -->
+        <activity
+            android:name=".HelpActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <!-- 修改密码 -->
+        <activity
+            android:name=".PwdChangeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+
+        <!-- 截屏界面 -->
+        <activity
+            android:name="com.beabox.hjy.tt.ScreenShotActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+
+        <!-- 肌肤测试分享页 -->
+        <activity
+            android:name="com.beabox.hjy.tt.SkinResultShareActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <!-- 扫一扫 -->
+        <activity
+            android:name=".SweepActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+         <!-- 我的测试消息 -->
+        <activity
+            android:name="com.beabox.hjy.tt.MyTestNewsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        
+        
+        <activity
+            android:name=".ProductsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <!-- 修改个人信息 -->
+        <activity
+            android:name=".UpdateBaseInfoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppNormalTheme" />
+        <!-- 登录 -->
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <!-- 管家金币 -->
+        <activity
+            android:name=".MyIntegralActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <!-- 页面有所调整 -->
+        <activity
+            android:name=".IntegralRecordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <!-- 积分记录 -->
+        <activity
+            android:name=".IntegralJiLuActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <!-- 输入手机号 -->
+        <activity
+            android:name=".RegisterActivity_1"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <!-- 收取验证码 -->
+        <activity
+            android:name=".RegisterActivity_2"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <!-- 设置个人密码注册提交 -->
+        <activity
+            android:name=".RegisterActivity_3"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <!-- 注册成功登陆 -->
+        <activity
+            android:name=".RegisterActivity_4"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <!-- 修改昵称 -->
+        <activity
+            android:name=".SaveNickNameActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+
+        <!-- 我的消息 -->
+        <activity
+            android:name=".MyMessageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <!-- 意见反馈 -->
+        <activity
+            android:name=".SuggestionFeedBack"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <!--
+        金币记录 
+        <activity
+            android:name=".CoinRecords"
+            android:screenOrientation="portrait" />
+        -->
+
+
+        <!-- 设置新密码 -->
+        <activity
+            android:name=".ResetPassword"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+
+        <!-- 面膜品牌商 -->
+        <activity
+            android:name="com.beabox.hjy.tt.ProducerActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+
+        <!-- 首页评论 -->
+        <activity
+            android:name="com.beabox.hjy.tt.CommentActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+
+        <!-- 精选二级页面 -->
+        <activity
+            android:name="com.beabox.hjy.tt.SelectedSecondActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+
+        <!-- 文章详情评论列表页面 -->
+        <activity
+            android:name=".ArticleDiscussActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustPan" />
+
+        <!-- 活动详情评论列表页面 -->
+        <activity
+            android:name=".ActionDiscussActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustPan" />
+        <!-- 拍照 -->
+        <activity
+            android:name=".TakePhotoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <!-- 分享照片 -->
+        <activity
+            android:name=".PhotoShareActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+
+        <!-- 商家详情 -->
+        <activity
+            android:name="com.beabox.hjy.tt.MerchantDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+
+        <!-- 购买设备 -->
+        <activity
+            android:name=".PurchaseDeviceActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/horizontal_slide"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <!-- 晚九点说明 -->
+        <activity
+            android:name=".NineIntroduceActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+
+        <!-- 聊天室界面 -->
+        <activity
+            android:name=".LeanCloudChatActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppNormalTheme" />
+
+        <!-- 图片浏览界面 -->
+        <activity
+            android:name=".ImageBrowerActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/imageBrowerDialog" />
+
+        <!-- LeanCloud Begin -->
+        <service android:name="com.avos.avoscloud.PushService" />
+        <!-- <service android:name="com.avoscloud.chat.service.CustomedPushService"/> -->
+
+        <receiver android:name="com.avos.avoscloud.AVBroadcastReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="com.avoscloud.chat.RETRY_CONNECT" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.avoscloud.chat.service.receiver.MsgReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="com.avoscloud.session.action" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.avoscloud.chat.service.receiver.GroupMessageReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="com.avoscloud.group.action" />
+            </intent-filter>
+        </receiver>
+
+        <!--
+             <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+        -->
+
+
+        <!-- Don't forgot InitActivity -->
+        <!-- prod -->
+        <!--
+             <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="PUT3u7lIPY49Ck0bqceFA3ue" />
+        -->
+        <!-- LeanCloud End -->
+
+
+        <!-- 关于SkinRun -->
+        <activity
+            android:name=".AboutSkinRunActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+
+        <!-- 测试说明页 -->
+        <activity
+            android:name=".TestInstructActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+
+        <!-- 我的收藏 -->
+        <activity
+            android:name="com.beabox.hjy.tt.MyCollectActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+
+        <!-- 广告页面 -->
+        <activity
+            android:name=".AdDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+
+        <!-- 收获地址 -->
+        <activity
+            android:name=".AddressFeedBack"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+
+        <!-- 我的测试 -->
+        <activity
+            android:name="com.beabox.hjy.tt.MyTestActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <!-- 面膜测试进入页 -->
+        <activity
+            android:name="com.skinrun.trunk.facial.mask.test.FacialmaskEntryActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+
+        <!-- 面膜测试页 -->
+        <activity
+            android:name="com.skinrun.trunk.facial.mask.test.FacialmaskTestActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <!-- 面膜测试结果页 -->
+        <activity
+            android:name="com.skinrun.trunk.facial.mask.test.FacialmaskResultActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <!-- 选择图片 -->
+        <activity
+            android:name="com.imagechooser.ui.SelectorImageMainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name="com.imagechooser.ui.ImageListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name="com.imagechooser.ui.ImageBrowseActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" >
+        </activity>
+
+        <!-- 百度地图所需的service -->
+        <!--
+             <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+        -->
+
+        <meta-data
+            android:name="debug"
+            android:value="true" />
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5376f8be56240b8c3b04b0c7" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="sogou" />
+
+        <!-- *************************    友盟分享相关的注�?START **************************** -->
+        <!-- 分享内容编辑�? -->
+        <activity
+            android:name="com.umeng.socialize.view.ShareActivity"
+            android:configChanges="orientation|keyboard"
+            android:launchMode="singleTask"
+            android:noHistory="true"
+            android:theme="@style/Theme.UMDialog"
+            android:windowSoftInputMode="stateVisible|adjustResize" >
+        </activity>
+
+        <!-- ############ QQ空间和QQ SSO授权的Activity注册 ############ -->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- 100424468，如果你使用的公用账号，则不需要修改；否则修改成你在QQ开放平台申请的 APP ID -->
+                <data android:scheme="tencent100381049" />
+                <!-- <data android:scheme="tencent1104063317" /> -->
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+
+        <!-- 微信回调activity -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- *************************    友盟分享相关的注�?END **************************** -->
+
+
+
+
+        <!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&&  友盟推送  &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
+        <receiver
+            android:name="com.umeng.message.NotificationProxyBroadcastReceiver"
+            android:exported="false" >
+        </receiver>
+        <receiver
+            android:name="com.umeng.message.SystemReceiver"
+            android:process=":push" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.umeng.message.MessageReceiver"
+            android:process=":push" >
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.RECEIVE" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.umeng.message.ElectionReceiver"
+            android:process=":push" >
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.ELECTION_RESULT_V4" />
+
+                <category android:name="umeng" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.umeng.message.RegistrationReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.beabox.hjy.tt.intent.action.COMMAND" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.umeng.message.BootBroadcastReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.umeng.message.UmengService"
+            android:exported="true"
+            android:label="PushService"
+            android:process=":push" >
+            <intent-filter>
+                <action android:name="com.beabox.hjy.tt.intent.action.START" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.beabox.hjy.tt.intent.action.COCKROACH" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.PING_V4" />
+
+                <category android:name="umeng" />
+            </intent-filter>
+        </service>
+        <service android:name="com.umeng.message.UmengIntentService" />
+        <!-- V1.3.0添加的service，负责下载通知的资源 -->
+        <service android:name="com.umeng.message.UmengDownloadResourceService" />
+
+        <meta-data
+            android:name="UMENG_MESSAGE_SECRET"
+            android:value="4df33891cab3fe239f3e715227d2a6cd" >
+        </meta-data>
+       
+
+        <!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&&  友盟推送  &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
+
+    </application>
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true" />
+
+</manifest>
